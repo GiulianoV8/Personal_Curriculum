@@ -13,7 +13,7 @@
     "typedRoutes": false,
     "distDir": ".next",
     "cleanDistDir": true,
-    "assetPrefix": "",
+    "assetPrefix": "/Personal_Curriculum",
     "cacheMaxMemorySize": 52428800,
     "configOrigin": "next.config.ts",
     "useFileSystemPublicRoutes": true,
@@ -47,7 +47,7 @@
         256,
         384
       ],
-      "path": "/_next/image",
+      "path": "/Personal_Curriculum/_next/image/",
       "loader": "default",
       "loaderFile": "",
       "domains": [],
@@ -61,7 +61,7 @@
       "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
       "contentDispositionType": "attachment",
       "remotePatterns": [],
-      "unoptimized": false
+      "unoptimized": true
     },
     "devIndicators": {
       "position": "bottom-left"
@@ -71,11 +71,11 @@
       "pagesBufferLength": 5
     },
     "amp": {
-      "canonicalBase": ""
+      "canonicalBase": "/Personal_Curriculum"
     },
-    "basePath": "",
+    "basePath": "/Personal_Curriculum",
     "sassOptions": {},
-    "trailingSlash": false,
+    "trailingSlash": true,
     "i18n": null,
     "productionBrowserSourceMaps": false,
     "excludeDefaultMomentLocales": true,
@@ -91,6 +91,7 @@
     "compiler": {},
     "expireTime": 31536000,
     "staticPageGenerationTimeout": 60,
+    "output": "export",
     "modularizeImports": {
       "@mui/icons-material": {
         "transform": "@mui/icons-material/{{member}}"
