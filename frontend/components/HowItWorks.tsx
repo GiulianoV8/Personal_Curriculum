@@ -30,10 +30,10 @@ export function HowItWorks() {
     <section id="how-it-works" className="mx-auto max-w-6xl px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          A product story that feels tangible
+          A curriculum that feels tangible
         </h2>
         <p className="mt-4 text-lg text-ink-400">
-          Instead of a static landing page, the experience frames the product as a coach that plans, adapts, and teaches.
+          You control your own path.
         </p>
       </div>
 

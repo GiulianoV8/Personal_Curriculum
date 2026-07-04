@@ -57,10 +57,6 @@ export function Hero() {
               </div>
             </div>
           </div>
-
-          <p className="mt-4 text-sm text-ink-500">
-            Prototype preview — planning experience and tutor flow are being shaped for real users.
-          </p>
         </div>
 
         <div className="rounded-3xl border border-ink-800/70 bg-gradient-to-br from-ink-900 via-ink-900 to-ink-950 p-5 shadow-2xl shadow-black/30">
@@ -69,9 +65,6 @@ export function Hero() {
               <div>
                 <p className="text-sm font-semibold text-white">Sample curriculum</p>
                 <p className="text-xs text-ink-500">Jazz guitar improvisation • 6 weeks</p>
-              </div>
-              <div className="rounded-full border border-sage-500/30 bg-sage-500/10 px-3 py-1 text-xs font-medium text-sage-400">
-                AI planned
               </div>
             </div>
 
@@ -94,37 +87,129 @@ export function Hero() {
             </div>
 
             <div className="mt-4 rounded-xl border border-sage-500/20 bg-sage-500/10 p-3 text-sm text-sage-300">
-              Suggested next step: practice 20 minutes daily and review one concept with the tutor.
+              Practice Plan: practice 20 minutes daily and review one concept with the tutor.
             </div>
           </div>
         </div>
       </div>
 
-      <div className="mx-auto mt-16 grid max-w-5xl gap-6 md:grid-cols-3">
-        {[
-          {
-            stat: "Any topic",
-            label: "From photography to programming",
-          },
-          {
-            stat: "Your pace",
-            label: "Hours per week, depth, and style",
-          },
-          {
-            stat: "Guided lessons",
-            label: "AI tutor inside every lesson",
-          },
-        ].map((item) => (
-          <div
-            key={item.stat}
-            className="rounded-2xl border border-ink-800/80 bg-ink-900/40 px-6 py-5 text-center"
-          >
-            <p className="font-display text-lg font-semibold text-sage-400">
-              {item.stat}
-            </p>
-            <p className="mt-1 text-sm text-ink-400">{item.label}</p>
+      <div className="mx-auto mt-16 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+        <div className="grid gap-6 lg:grid-cols-3">
+          <div className="rounded-3xl border border-ink-800/80 bg-ink-900/70 p-6 shadow-2xl shadow-black/20">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-sm font-semibold text-sage-400">Progress dashboard</p>
+                <p className="mt-1 text-xs text-ink-500">Weekly momentum and completion.</p>
+              </div>
+              <span className="rounded-full bg-sage-500/10 px-3 py-1 text-xs text-sage-300">
+                62% done
+              </span>
+            </div>
+
+            <div className="mt-6 space-y-4">
+              <div className="rounded-2xl bg-ink-950/80 p-4">
+                <div className="mb-3 flex items-center justify-between text-sm text-ink-400">
+                  <span>Current module</span>
+                  <span>2 of 3</span>
+                </div>
+                <div className="h-2 rounded-full bg-ink-800">
+                  <div className="h-2 rounded-full bg-sage-400" style={{ width: "62%" }} />
+                </div>
+              </div>
+
+              <div className="space-y-3 rounded-2xl bg-ink-950/80 p-4">
+                {[
+                  ["Module 1: Basic Chords", "Done"],
+                  ["Module 2: Intermediate Concepts", "In progress"],
+                  ["Module 3: Advanced Techniques", "Upcoming"],
+                ].map(([title, status]) => (
+                  <div key={title} className="flex items-center justify-between gap-3">
+                    <div>
+                      <p className="text-sm font-medium text-white">{title}</p>
+                      <p className="text-xs text-ink-500">{status}</p>
+                    </div>
+                    <span
+                      className={`rounded-full px-2 py-1 text-[11px] ${
+                        status === "Done"
+                          ? "bg-sage-500/15 text-sage-300"
+                          : status === "In progress"
+                          ? "bg-amber-500/15 text-amber-300"
+                          : "bg-ink-800 text-ink-400"
+                      }`}
+                    >
+                      {status}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        ))}
+
+          <div className="rounded-3xl border border-ink-800/80 bg-ink-900/70 p-6 shadow-2xl shadow-black/20">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-sm font-semibold text-sage-400">Sample quiz</p>
+                <p className="mt-1 text-xs text-ink-500">A quick concept check inside a lesson.</p>
+              </div>
+              <span className="rounded-full bg-amber-500/10 px-3 py-1 text-xs text-amber-300">
+                1 min
+              </span>
+            </div>
+
+            <div className="mt-6 rounded-2xl bg-ink-950/80 p-4 text-sm text-ink-300">
+              <p className="font-medium text-white">In jazz harmony, which chord best follows C#maj7 for a smooth ii–V motion?</p>
+              <div className="mt-4 space-y-3">
+                {[
+                  "D#m7 moving to G#7.",
+                  "F#m7 moving to B7.",
+                  "A#m7 moving to D#7.",
+                ].map((option, index) => (
+                  <div
+                    key={option}
+                    className={`rounded-2xl border px-4 py-3 ${
+                      index === 0
+                        ? "border-sage-500/30 bg-sage-500/10"
+                        : "border-ink-800 bg-ink-900"
+                    }`}
+                  >
+                    <label className="flex items-center gap-3 text-sm text-ink-100">
+                      <span className="flex h-4 w-4 items-center justify-center rounded-full border border-ink-600 bg-ink-950 text-ink-100">
+                        {index === 0 ? "✓" : ""}
+                      </span>
+                      {option}
+                    </label>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-ink-800/80 bg-ink-900/70 p-6 shadow-2xl shadow-black/20">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-sm font-semibold text-sage-400">Sample lesson</p>
+                <p className="mt-1 text-xs text-ink-500">Content, objective, and next step.</p>
+              </div>
+              <span className="rounded-full bg-ink-800/80 px-3 py-1 text-xs text-ink-400">
+                Lesson 4
+              </span>
+            </div>
+
+            <div className="mt-6 space-y-4 rounded-2xl bg-ink-950/80 p-4">
+              <div>
+                <p className="text-sm font-semibold text-white">Objective</p>
+                <p className="mt-2 text-sm text-ink-400">Use chord tones and guide tones to shape a melodic jazz line.</p>
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-white">Key concept</p>
+                <p className="mt-2 text-sm text-ink-400">Play a ii–V–I phrase using guide-tone resolution.</p>
+              </div>
+              <div className="rounded-2xl border border-ink-800/60 bg-ink-900/70 px-4 py-3 text-sm text-ink-300">
+                Next step: Try the phrase with a backing track and ask the tutor for alternate voicings.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
