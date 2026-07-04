@@ -10,9 +10,9 @@ const FEATURES = [
         />
       </svg>
     ),
-    title: "Tailored curriculum",
+    title: "Personalized curriculum",
     description:
-      "AI generates modules, lessons, and milestones structured for your topic — not a generic template.",
+      "The planner turns a single idea into a structured path with modules, lessons, and milestones tailored to the user.",
   },
   {
     icon: (
@@ -27,7 +27,7 @@ const FEATURES = [
     ),
     title: "Realistic pacing",
     description:
-      "Your weekly hours and timeline become a schedule you can actually follow — nights, weekends, or breaks.",
+      "The experience translates weekly availability into a schedule that feels doable and sustainable.",
   },
   {
     icon: (
@@ -40,9 +40,9 @@ const FEATURES = [
         />
       </svg>
     ),
-    title: "In-lesson AI tutor",
+    title: "AI tutor inside lessons",
     description:
-      "Ask for different explanations, more examples, or extra exercises — grounded in your current lesson.",
+      "When the learner is ready, the tutor explains, questions, and supports the next step without overwhelming them.",
   },
   {
     icon: (
@@ -55,9 +55,9 @@ const FEATURES = [
         />
       </svg>
     ),
-    title: "Progress tracking",
+    title: "Progress that stays visible",
     description:
-      "Mark lessons complete, log time spent, and rate difficulty so your plan stays aligned with you.",
+      "Learners can mark completion, log effort, and see momentum without needing a complex dashboard.",
   },
   {
     icon: (
@@ -72,7 +72,7 @@ const FEATURES = [
     ),
     title: "Flexible replanning",
     description:
-      "Life changes. Adjust hours or timeline and regenerate — shorter, deeper, or more practice-heavy.",
+      "If life changes, the plan shifts — shorter, deeper, or adjusted to match the learner’s current reality.",
   },
   {
     icon: (
@@ -87,7 +87,7 @@ const FEATURES = [
     ),
     title: "Private by default",
     description:
-      "Your plans and progress stay yours. No social feeds, no shared profiles in V1.",
+      "The system is designed with privacy in mind, making it feel safe and personal from day one.",
   },
 ];
 
@@ -97,10 +97,10 @@ export function Features() {
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-            A flexible coach, not a rigid course
+            A coach that plans, adapts, and teaches
           </h2>
           <p className="mt-4 text-lg text-ink-400">
-            Built for hobby learners who want structure without losing control.
+            Pathway is designed to make self-learning feel structured, motivating, and genuinely usable.
           </p>
         </div>
 

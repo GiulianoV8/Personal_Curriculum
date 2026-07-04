@@ -1,27 +1,27 @@
 const STEPS = [
   {
     number: "01",
-    title: "Enter a topic",
+    title: "Start with a goal",
     description:
-      "Tell us what you want to learn — broad or specific. Jazz guitar, Korean, ML basics, anything.",
+      "A learner enters any topic — from a hobby to a career objective — and the planner begins shaping a path immediately.",
   },
   {
     number: "02",
-    title: "Answer a few questions",
+    title: "Shape the plan",
     description:
-      "Share your goal, current level, weekly hours, timeline, depth, and preferred learning style.",
+      "A few smart questions tailor the roadmap around level, time availability, timeline, and learning style.",
   },
   {
     number: "03",
-    title: "Review your roadmap",
+    title: "See the roadmap",
     description:
-      "Get modules, lessons, milestones, and time estimates. Tweak duration, depth, or regenerate anytime.",
+      "The experience turns that input into a visible curriculum with modules, milestones, and realistic pacing.",
   },
   {
     number: "04",
-    title: "Learn with your coach",
+    title: "Learn with support",
     description:
-      "Work through lessons at your pace. Ask questions, get explanations, and track your progress.",
+      "The AI tutor stays close to the lesson, helping the user understand, practice, and keep moving forward.",
   },
 ];
 
@@ -30,17 +30,17 @@ export function HowItWorks() {
     <section id="how-it-works" className="mx-auto max-w-6xl px-6 py-24 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          From curiosity to a clear path
+          A product story that feels tangible
         </h2>
         <p className="mt-4 text-lg text-ink-400">
-          No rigid courses. Just a plan that fits how you actually learn.
+          Instead of a static landing page, the experience frames the product as a coach that plans, adapts, and teaches.
         </p>
       </div>
 
-      <ol className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <ol className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
         {STEPS.map((step) => (
-          <li key={step.number} className="relative">
-            <span className="font-display text-4xl font-semibold text-ink-800">
+          <li key={step.number} className="rounded-2xl border border-ink-800/60 bg-ink-900/40 p-6">
+            <span className="font-display text-4xl font-semibold text-sage-400">
               {step.number}
             </span>
             <h3 className="mt-4 font-display text-xl font-semibold text-white">
