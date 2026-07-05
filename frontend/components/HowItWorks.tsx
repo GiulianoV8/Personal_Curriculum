@@ -33,7 +33,7 @@ export function HowItWorks() {
           A curriculum that feels tangible
         </h2>
         <p className="mt-4 text-lg text-ink-400">
-          You control your own path.
+          You control your own path, and the experience turns a single idea into something you can follow step by step.
         </p>
       </div>
 

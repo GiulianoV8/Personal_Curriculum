@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 const EXAMPLE_TOPICS = [
-  "Jazz guitar improvisation",
-  "Korean for beginners",
-  "Machine learning basics",
-  "Film photography",
-  "Bayesian statistics",
+  "Learn jazz guitar improvisation",
+  "Pick up Korean",
+  "Build a coding routine",
+  "Study photography",
+  "Linear algebra foundations",
 ];
 
 export function Hero() {
@@ -22,8 +24,8 @@ export function Hero() {
 
           <p className="mx-auto mt-6 max-w-2xl text-balance text-lg leading-relaxed text-ink-300 sm:mx-0">
             Pathway helps people turn hobbies, career goals, and side projects
-            into structured plans with pacing, milestones, and an AI tutor that
-            actually adapts to how they learn.
+            into structured plans with pacing, milestones, and a tutor that
+            adapts to how they learn.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -36,11 +38,11 @@ export function Hero() {
                   readOnly
                   aria-label="Learning topic"
                 />
-                <button
-                  type="button"
+                <Link
+                  href="/demo/linear-algebra"
                   className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-500 px-6 py-4 text-base font-semibold text-ink-950 transition hover:bg-amber-400"
                 >
-                  Build my plan
+                  Explore a lesson demo
                   <svg
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -53,7 +55,7 @@ export function Hero() {
                       clipRule="evenodd"
                     />
                   </svg>
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -63,16 +65,16 @@ export function Hero() {
           <div className="rounded-2xl border border-ink-800/70 bg-ink-950/80 p-4">
             <div className="flex items-center justify-between border-b border-ink-800/60 pb-3">
               <div>
-                <p className="text-sm font-semibold text-white">Sample curriculum</p>
-                <p className="text-xs text-ink-500">Jazz guitar improvisation • 6 weeks</p>
+                <p className="text-sm font-semibold text-white">Example curriculum</p>
+                <p className="text-xs text-ink-500">A flexible plan for any new skill • 6 weeks</p>
               </div>
             </div>
 
             <div className="mt-4 space-y-3">
               {[
-                ["Foundation", "Ear training, fretboard, rhythm"],
-                ["Technique", "Scales, phrasing, timing"],
-                ["Expression", "Soloing, tone, improvisation"],
+                ["Foundation", "Start with the basics and build confidence"],
+                ["Practice", "Turn concepts into small, repeatable habits"],
+                ["Milestones", "Track progress and adjust the plan as you go"],
               ].map(([title, detail]) => (
                 <div key={title} className="rounded-xl border border-ink-800/60 bg-ink-900/70 p-3">
                   <div className="flex items-center justify-between gap-3">
@@ -87,7 +89,7 @@ export function Hero() {
             </div>
 
             <div className="mt-4 rounded-xl border border-sage-500/20 bg-sage-500/10 p-3 text-sm text-sage-300">
-              Practice Plan: practice 20 minutes daily and review one concept with the tutor.
+              Practice Plan: spend a little time each day and revisit one concept with the tutor.
             </div>
           </div>
         </div>
@@ -119,9 +121,9 @@ export function Hero() {
 
               <div className="space-y-3 rounded-2xl bg-ink-950/80 p-4">
                 {[
-                  ["Module 1: Basic Chords", "Done"],
-                  ["Module 2: Intermediate Concepts", "In progress"],
-                  ["Module 3: Advanced Techniques", "Upcoming"],
+                  ["Module 1: Foundations", "Done"],
+                  ["Module 2: Practice", "In progress"],
+                  ["Module 3: Reflection", "Upcoming"],
                 ].map(([title, status]) => (
                   <div key={title} className="flex items-center justify-between gap-3">
                     <div>
@@ -148,7 +150,7 @@ export function Hero() {
           <div className="rounded-3xl border border-ink-800/80 bg-ink-900/70 p-6 shadow-2xl shadow-black/20">
             <div className="flex items-center justify-between gap-3">
               <div>
-                <p className="text-sm font-semibold text-sage-400">Sample quiz</p>
+                <p className="text-sm font-semibold text-sage-400">Lesson check-in</p>
                 <p className="mt-1 text-xs text-ink-500">A quick concept check inside a lesson.</p>
               </div>
               <span className="rounded-full bg-amber-500/10 px-3 py-1 text-xs text-amber-300">
@@ -157,12 +159,12 @@ export function Hero() {
             </div>
 
             <div className="mt-6 rounded-2xl bg-ink-950/80 p-4 text-sm text-ink-300">
-              <p className="font-medium text-white">In jazz harmony, which chord best follows C#maj7 for a smooth ii–V motion?</p>
+              <p className="font-medium text-white">What helps a learner stay on track?</p>
               <div className="mt-4 space-y-3">
                 {[
-                  "D#m7 moving to G#7.",
-                  "F#m7 moving to B7.",
-                  "A#m7 moving to D#7.",
+                  "A clear next step",
+                  "A short daily habit",
+                  "A simple progress view",
                 ].map((option, index) => (
                   <div
                     key={option}
@@ -187,8 +189,8 @@ export function Hero() {
           <div className="rounded-3xl border border-ink-800/80 bg-ink-900/70 p-6 shadow-2xl shadow-black/20">
             <div className="flex items-center justify-between gap-3">
               <div>
-                <p className="text-sm font-semibold text-sage-400">Sample lesson</p>
-                <p className="mt-1 text-xs text-ink-500">Content, objective, and next step.</p>
+                <p className="text-sm font-semibold text-sage-400">Example lesson</p>
+                <p className="mt-1 text-xs text-ink-500">A glimpse of the lesson experience.</p>
               </div>
               <span className="rounded-full bg-ink-800/80 px-3 py-1 text-xs text-ink-400">
                 Lesson 4
@@ -198,15 +200,18 @@ export function Hero() {
             <div className="mt-6 space-y-4 rounded-2xl bg-ink-950/80 p-4">
               <div>
                 <p className="text-sm font-semibold text-white">Objective</p>
-                <p className="mt-2 text-sm text-ink-400">Use chord tones and guide tones to shape a melodic jazz line.</p>
+                <p className="mt-2 text-sm text-ink-400">Understand the key idea, try one exercise, and decide the next step.</p>
               </div>
               <div>
-                <p className="text-sm font-semibold text-white">Key concept</p>
-                <p className="mt-2 text-sm text-ink-400">Play a ii–V–I phrase using guide-tone resolution.</p>
+                <p className="text-sm font-semibold text-white">Why it matters</p>
+                <p className="mt-2 text-sm text-ink-400">A clear lesson flow keeps momentum high without overwhelming the learner.</p>
               </div>
-              <div className="rounded-2xl border border-ink-800/60 bg-ink-900/70 px-4 py-3 text-sm text-ink-300">
-                Next step: Try the phrase with a backing track and ask the tutor for alternate voicings.
-              </div>
+              <Link
+                href="/demo/linear-algebra"
+                className="inline-flex rounded-xl border border-sage-500/30 bg-sage-500/10 px-3 py-2 text-sm font-medium text-sage-300 transition hover:bg-sage-500/20"
+              >
+                See the linear algebra lesson demo
+              </Link>
             </div>
           </div>
         </div>

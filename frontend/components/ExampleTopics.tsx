@@ -5,7 +5,7 @@ export function ExampleTopics() {
     <section className="border-y border-ink-800/60 bg-ink-900/30 py-12">
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <p className="text-center text-sm font-medium uppercase tracking-wider text-ink-500">
-          Popular starting points
+          Interest-based demo paths
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           {EXAMPLE_TOPICS.map((topic) => (

@@ -100,7 +100,7 @@ export function Features() {
             A coach that plans, adapts, and teaches
           </h2>
           <p className="mt-4 text-lg text-ink-400">
-            Pathway is designed to make self-learning feel structured, motivating, and genuinely usable.
+            Pathway is designed to make self-learning feel structured, motivating, and genuinely usable for any topic you care about.
           </p>
         </div>
 
