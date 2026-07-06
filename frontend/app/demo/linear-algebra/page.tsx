@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { FormEvent, useState } from "react";
+
+const VectorViz = dynamic(() => import("../../../components/VectorViz"), { ssr: false });
 
 type QuizItem = {
   prompt: string;
@@ -17,46 +20,73 @@ type QuizResult = {
   feedback: string;
 };
 
-const LESSON_STEPS = [
+const LESSON_SECTIONS = [
   {
-    title: "1. Read the concept",
-    body: "A vector describes direction and magnitude. In this lesson, the vector [2, 1] is used to show how a matrix can change where it points.",
+    title: "1. Warm up with vectors",
+    duration: "5 min",
+    body:
+      "Start by imagining vectors as arrows. A vector like [2, 1] points right and up. This section helps learners connect the numbers to direction and length.",
   },
   {
-    title: "2. See the transformation",
-    body: "Multiplying by a matrix changes the vector into a new one. That is the core idea behind linear transformations.",
+    title: "2. Draw the picture",
+    duration: "7 min",
+    body:
+      "Sketch the vector on graph paper or in your head. Notice how the x coordinate moves right and the y coordinate moves up. This visual habit makes transformations easier to understand.",
   },
   {
-    title: "3. Check your understanding",
-    body: "Each question below gives you immediate feedback, a model answer, and a short resource so the sample lesson feels real.",
+    title: "3. Meet the matrix",
+    duration: "7 min",
+    body:
+      "A matrix is a compact rule that tells us how to move a vector. In this lesson, the matrix doubles the x component and leaves the y component unchanged.",
+  },
+  {
+    title: "4. Explore the example",
+    duration: "6 min",
+    body:
+      "Apply the matrix to [2, 1] and compare the before-and-after vectors. This worked example reinforces what it means to transform a vector using a matrix.",
+  },
+  {
+    title: "5. Practice and reflect",
+    duration: "5 min",
+    body:
+      "Answer the short questions and compare your reasoning with the model answers. Reflection is the final step that turns a sample lesson into a learning experience.",
   },
 ];
 
 const QUIZ_ITEMS: QuizItem[] = [
   {
-    prompt: "What does the dot product tell you about two vectors?",
-    acceptedTerms: [["aligned"], ["angle"], ["similar"], ["direction"], ["orthogonal"]],
-    answer: "It tells you how aligned the vectors are, and it becomes zero when they are orthogonal.",
+    prompt: "How would you describe the vector [2, 1] in words?",
+    acceptedTerms: [["right"], ["up"], ["length"], ["magnitude"], ["direction"]],
+    answer: "It is an arrow that moves 2 units to the right and 1 unit up, with both direction and magnitude.",
     explanation:
-      "The dot product measures how much one vector points in the same direction as another. It is also the key to understanding perpendicularity.",
-    resourceLabel: "Khan Academy: Dot products",
-    resourceHref: "https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/dot-product",
+      "Vectors are better understood as movements in space, not just pairs of numbers. The numbers describe where the arrow points and how long it is.",
+    resourceLabel: "Khan Academy: Vectors and scalars",
+    resourceHref: "https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/vectors/vectors-introduction",
   },
   {
-    prompt: "What happens when a matrix multiplies a vector?",
-    acceptedTerms: [["transforms"], ["changes"], ["new"], ["maps"], ["moves"]],
-    answer: "It transforms the vector into a new vector by applying a linear rule.",
+    prompt: "What change does the matrix [[2, 0], [0, 1]] make to [2, 1]?",
+    acceptedTerms: [["doubles x"], ["stretches x"], ["becomes [4,1]"], ["scales x"]],
+    answer: "It stretches the vector horizontally, turning [2, 1] into [4, 1].",
     explanation:
-      "A matrix acts like a machine that takes a vector in and gives back a new vector. That is how linear transformations are represented.",
+      "The matrix multiplies the x coordinate by 2 and leaves the y coordinate alone. That is a simple linear transformation.",
     resourceLabel: "3Blue1Brown: Linear transformations",
     resourceHref: "https://www.youtube.com/watch?v=kYB8IZa5AuE",
   },
   {
-    prompt: "Why does a transformation matter in linear algebra?",
-    acceptedTerms: [["model"], ["systems"], ["structure"], ["preserve"], ["understand"]],
-    answer: "It helps us model change and understand how systems behave in a structured way.",
+    prompt: "What does the dot product reveal about two vectors in this lesson?",
+    acceptedTerms: [["aligned"], ["orthogonal"], ["angle"], ["projection"]],
+    answer: "It reveals how aligned the vectors are and becomes zero when they are orthogonal.",
     explanation:
-      "Transformations let us study how objects move, scale, rotate, and change while keeping the underlying structure understandable.",
+      "The dot product connects the algebraic formula to the geometric angle between vectors, helping learners see why perpendicular vectors are special.",
+    resourceLabel: "Khan Academy: Dot products",
+    resourceHref: "https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces/dot-cross-products/v/dot-product",
+  },
+  {
+    prompt: "Why is this transformation still a linear map?",
+    acceptedTerms: [["linear"], ["origin"], ["combination"], ["scale"], ["add"]],
+    answer: "Because it preserves the origin and scales the x and y components separately in a consistent way.",
+    explanation:
+      "Linear maps preserve the basic structure of space: scaling and adding vectors still behaves predictably after transformation.",
     resourceLabel: "Khan Academy: Linear transformations",
     resourceHref: "https://www.khanacademy.org/math/linear-algebra/matrix-transformations/linear-transformations/v/linear-transformations",
   },
@@ -125,12 +155,23 @@ export default function LinearAlgebraDemoPage() {
             </p>
 
             <div className="mt-8 space-y-4">
-              {LESSON_STEPS.map((step) => (
-                <div key={step.title} className="rounded-2xl border border-ink-800/60 bg-ink-950/70 p-4">
-                  <h3 className="text-lg font-semibold text-white">{step.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-400">{step.body}</p>
+              {LESSON_SECTIONS.map((section) => (
+                <div key={section.title} className="rounded-2xl border border-ink-800/60 bg-ink-950/70 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="text-lg font-semibold text-white">{section.title}</h3>
+                    <span className="rounded-full bg-ink-800/80 px-3 py-1 text-xs uppercase tracking-[0.18em] text-ink-300">
+                      {section.duration}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-ink-400">{section.body}</p>
                 </div>
               ))}
+
+              {/* Vector visualization component (client-only) */}
+              <div className="mt-4">
+                {/* dynamically import VectorViz to avoid SSR issues */}
+                <VectorViz />
+              </div>
             </div>
 
             <div className="mt-8 rounded-2xl border border-ink-800/60 bg-ink-950/70 p-4">
@@ -138,6 +179,32 @@ export default function LinearAlgebraDemoPage() {
               <p className="mt-2 text-sm leading-relaxed text-ink-300">
                 Start with the vector [2, 1]. If a matrix doubles the x-value and leaves the y-value unchanged, the new vector becomes [4, 1]. This is a simple example of a transformation in action.
               </p>
+              <p className="mt-3 text-sm leading-relaxed text-ink-300">
+                Notice how the arrow gets wider but still moves up the same amount. This shows how linear algebra can stretch one direction without changing the other.
+              </p>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-ink-800/60 bg-ink-900/70 p-4">
+              <p className="text-sm font-semibold text-white">Lesson summary</p>
+              <div className="mt-3 grid gap-2 sm:grid-cols-2">
+                <div className="text-sm text-ink-300">
+                  <p className="font-medium text-ink-100">What you learned</p>
+                  <ul className="mt-2 list-inside list-disc text-ink-300">
+                    <li>Vectors have direction and magnitude (e.g. [2, 1]).</li>
+                    <li>Matrices apply linear rules to transform vectors.</li>
+                    <li>Simple matrices can stretch, compress, or rotate space.</li>
+                  </ul>
+                </div>
+
+                <div className="text-sm text-ink-300">
+                  <p className="font-medium text-ink-100">Next steps</p>
+                  <ul className="mt-2 list-inside list-disc text-ink-300">
+                    <li>Try different vector values in the diagram.</li>
+                    <li>Apply a different matrix to see rotation or compression.</li>
+                    <li>Watch the linked videos to deepen intuition.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </section>
 
