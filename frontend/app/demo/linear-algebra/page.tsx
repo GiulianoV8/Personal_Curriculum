@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import { FormEvent, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
+import { buildLinearAlgebraCurriculum, type LearningPreferences } from "@/lib/linearAlgebraCurriculum";
 
 const VectorViz = dynamic(() => import("../../../components/VectorViz"), { ssr: false });
 
@@ -102,6 +103,17 @@ const isAnswerCorrect = (value: string, acceptedTerms: string[][]) => {
 export default function LinearAlgebraDemoPage() {
   const [responses, setResponses] = useState<Record<number, string>>({});
   const [results, setResults] = useState<Record<number, QuizResult | null>>({});
+  const [preferences, setPreferences] = useState<LearningPreferences>({
+    topic: "linear algebra",
+    goal: "Build intuitive understanding before solving harder problems",
+    currentLevel: "beginner",
+    weeklyHours: 4,
+    durationWeeks: 4,
+    depth: "intermediate",
+    learningStyle: "balanced",
+  });
+
+  const curriculum = useMemo(() => buildLinearAlgebraCurriculum(preferences), [preferences]);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>, index: number) => {
     event.preventDefault();
@@ -141,6 +153,36 @@ export default function LinearAlgebraDemoPage() {
             >
               Back to home
             </Link>
+          </div>
+        </div>
+
+        <div className="rounded-3xl border border-ink-800/70 bg-ink-900/70 p-6 shadow-2xl shadow-black/20">
+          <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sage-400">Chosen learning profile</p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                {[
+                  ["Topic", preferences.topic],
+                  ["Goal", preferences.goal],
+                  ["Current level", preferences.currentLevel],
+                  ["Weekly hours", `${preferences.weeklyHours}h`],
+                  ["Duration", `${preferences.durationWeeks} weeks`],
+                  ["Depth", preferences.depth],
+                  ["Learning style", preferences.learningStyle],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-2xl border border-ink-800/60 bg-ink-950/70 p-3">
+                    <p className="text-xs uppercase tracking-[0.2em] text-ink-500">{label}</p>
+                    <p className="mt-2 text-sm font-medium text-white">{value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-2xl border border-sage-500/20 bg-sage-500/10 p-4">
+              <p className="text-sm font-semibold text-sage-300">Generated curriculum snapshot</p>
+              <h2 className="mt-3 text-2xl font-semibold text-white">{curriculum.curriculumTitle}</h2>
+              <p className="mt-3 text-sm leading-7 text-ink-200">{curriculum.curriculumDescription}</p>
+              <p className="mt-4 text-sm text-ink-300">Estimated total: {curriculum.totalEstimatedHours} hours over {curriculum.durationWeeks} weeks</p>
+            </div>
           </div>
         </div>
 

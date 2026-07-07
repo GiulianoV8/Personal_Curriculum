@@ -23,6 +23,9 @@ export function Header() {
       </a>
 
       <nav className="hidden items-center gap-8 text-sm text-ink-300 md:flex">
+        <a href="/learn" className="transition hover:text-white">
+          Lessons
+        </a>
         <a href="#how-it-works" className="transition hover:text-white">
           How it works
         </a>

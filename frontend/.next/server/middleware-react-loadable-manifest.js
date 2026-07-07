@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{\"app/demo/linear-algebra/page.tsx -> ../../../components/VectorViz\":{\"id\":\"app/demo/linear-algebra/page.tsx -> ../../../components/VectorViz\",\"files\":[\"static/chunks/_app-pages-browser_components_VectorViz_tsx.js\"]}}"
+self.__REACT_LOADABLE_MANIFEST="{}"

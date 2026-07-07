@@ -4,6 +4,7 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { Features } from "@/components/Features";
 import { ExampleTopics } from "@/components/ExampleTopics";
 import { Footer } from "@/components/Footer";
+import { MockCurriculumFlow } from "@/components/MockCurriculumFlow";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <MockCurriculumFlow />
         <ExampleTopics />
         <HowItWorks />
         <Features />

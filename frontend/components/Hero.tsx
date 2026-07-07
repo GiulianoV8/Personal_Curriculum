@@ -37,10 +37,10 @@ export function Hero() {
                   aria-label="Learning topic"
                 />
                 <Link
-                  href="/demo/linear-algebra"
-                  className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-amber-500 px-6 py-4 text-base font-semibold text-ink-950 transition hover:bg-amber-400"
+                  href="/learn"
+                  className="flex shrink-0 items-center justify-center gap-2 rounded-xl bg-sage-500 px-6 py-4 text-base font-semibold text-white transition hover:bg-sage-400"
                 >
-                  Explore a lesson demo
+                  Start the curriculum
                   <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden>
                     <path
                       fillRule="evenodd"

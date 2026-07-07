@@ -1,11 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": [],
-  "preview": {
-    "previewModeId": "17b4fdcc2cf9ee873939e5fdfdac017e",
-    "previewModeSigningKey": "cd6357c6e73d5504a73560a9d93ba5cba83a7041d5439ef852348869cecb9768",
-    "previewModeEncryptionKey": "d70b3871af543b38c59dd029895b6eb707644d4842773d0233548f51c472fa23"
-  }
-}
+{"version":4,"routes":{"/learn/scalars-vectors":{},"/learn/vector-operations":{},"/learn/matrices-transformations":{},"/learn/matrix-multiplication":{}},"dynamicRoutes":{"/learn/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/learn/[slug]","routeRegex":"^\\/learn\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"b7e837f8a7b020bda984c0c50d004fee","previewModeSigningKey":"ad49143b389902039c1e7a000a43508e399c708208861c4acf69ca0f3fbe53e5","previewModeEncryptionKey":"9e62cff727162a58ec48ad00350bc6b11b5333a6ac65cfaf8f97683ae7cc052d"}}
