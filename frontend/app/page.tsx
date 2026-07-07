@@ -38,6 +38,8 @@ export default function Home() {
 
               <Link
                 href="/learn"
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-sage-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sage-400"
               >
                 Open the curriculum
@@ -48,6 +50,32 @@ export default function Home() {
         <ExampleTopics />
         <HowItWorks />
         <Features />
+        <section className="mx-auto max-w-7xl px-6 py-16 lg:px-8">
+          <div className="rounded-[2rem] border border-sage-500/20 bg-sage-500/5 p-8 shadow-[0_30px_120px_rgba(0,0,0,0.35)] backdrop-blur">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div className="max-w-2xl">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-sage-400">
+                  Stay in the loop
+                </p>
+                <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                  Interested in Pathway? Let us know.
+                </h2>
+                <p className="mt-4 text-lg leading-8 text-ink-300">
+                  Sign up to hear about new features and get early access as we build out the full experience.
+                </p>
+              </div>
+
+              <Link
+                href="https://forms.gle/3SFW57hiB1284Bgq9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-sage-500 px-5 py-3 text-sm font-semibold text-white transition hover:bg-sage-400"
+              >
+                Fill out the interest form
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

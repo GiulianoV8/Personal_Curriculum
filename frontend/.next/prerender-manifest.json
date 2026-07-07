@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/learn/scalars-vectors":{},"/learn/vector-operations":{},"/learn/matrices-transformations":{},"/learn/matrix-multiplication":{}},"dynamicRoutes":{"/learn/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/learn/[slug]","routeRegex":"^\\/learn\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"997a7c8704d195bf4ca88550406dd355","previewModeSigningKey":"49d4eaa33ebf207fc936c99ca9b73abecab94d61980f07cde26da9d877006d20","previewModeEncryptionKey":"4303fd9765476c850004499905e86c204b867084d500a9d778efcd0f6388e27e"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "a9809b0f9e4f494fc9240da39a0df692",
+    "previewModeSigningKey": "6c12175cfbd4b54436f0b0b438212c68b9d17c35911a6bc37950eba7217e22e4",
+    "previewModeEncryptionKey": "cbb4c5160342fcca0af70e7e7b113a9bc036ae09823f4d0344b9da654afb784c"
+  }
+}
